@@ -3,6 +3,13 @@
 @import url(containers_and_frames.css);
 
 
-body{
-    background-color: aquamarine;
+.bg-video {
+    position: absolute;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+    /* o overflow: hidden server para escoder tudo o que for sobrepor o elemento */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
