@@ -78,6 +78,8 @@ async function removeAllCardsImages(){
     
     imgElements = player1BOX.querySelectorAll("img");
     imgElements.forEach((img) => img.remove());
+
+    
 }
 
 async function checkDuelResults(playerCardId, computerCardId){
@@ -104,7 +106,8 @@ async function updateScore(){
 }
 
 async function drawButton(text){
-    state.actions.button.innerText = text
+    // Deixar o texto maiusculo é o .toUpperCase
+    state.actions.button.innerText = text.toUpperCase();
     state.actions.button.style.display = "block"
 
 }
@@ -167,13 +170,20 @@ async function drawCards(cardNumber, fieldSide){
 }
 
 async function resetDuel(){
+    // resetendo butao e imagem do lado esquerdo
     state.cardSprites.avatar.src = "";
     state.actions.button.style.display = "none";
 
+    // removendo as imagens do campo
     state.fieldCards.player.style.display = "none";
     state.fieldCards.computer.style.display = "none";
 
+    // resetando o nome e typo da carta
+    state.cardSprites.name.innerText = "Selecione um Carta";
+    state.cardSprites.type.innerText = "No seu Campo";
+
     init()
+
 }
 
 async function playAudio(status){
